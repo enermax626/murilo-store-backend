@@ -23,8 +23,8 @@ public class Address {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn( name = "customerid", referencedColumnName = "id", foreignKey=@ForeignKey(name = "FK_Customer"))
-	private Customer customer;
+	@JoinColumn( name = "userid", referencedColumnName = "id", foreignKey=@ForeignKey(name = "FK_USER"))
+	private User user;
 	
 	@Column(nullable = false, length = 100 )
 	private String street;

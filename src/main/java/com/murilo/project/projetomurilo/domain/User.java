@@ -14,15 +14,15 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Customer {
+public class User {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_CUSTOMER")
-	@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "SEQ_CUSTOMER")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_USER")
+	@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "SEQ_USER")
 	private Long id;
 	
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = "user")
 	private List<Address> address;
 	
 	@Column(nullable = false, length = 80 )

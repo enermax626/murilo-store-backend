@@ -11,29 +11,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.murilo.project.projetomurilo.domain.Customer;
-import com.murilo.project.projetomurilo.repository.CustomerRepository;
+import com.murilo.project.projetomurilo.domain.User;
+import com.murilo.project.projetomurilo.repository.UserRepository;
 
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/user")
 @AllArgsConstructor
-public class CustomerController {
+public class UserController {
 
-	private CustomerRepository customerRepository;
+	private UserRepository userRepository;
 
 	
 	@GetMapping
-	public List<Customer> getAllCustomers() {
-		return customerRepository.findAll();
+	public List<User> getAllUsers() {
+		return userRepository.findAll();
 		
 	}
 	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Customer registerCustomer(@RequestBody Customer customer) {
-		return customerRepository.save(customer);
+	public User registerUser(@RequestBody User user) {
+		return userRepository.save(user);
 	}
 	
 	
