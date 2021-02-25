@@ -11,8 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity
 public class Stock {
 
