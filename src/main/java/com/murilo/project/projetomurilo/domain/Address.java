@@ -1,5 +1,7 @@
 package com.murilo.project.projetomurilo.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import lombok.Data;
@@ -23,8 +26,11 @@ public class Address {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn( name = "userid", referencedColumnName = "id", foreignKey=@ForeignKey(name = "FK_USER"))
+	@JoinColumn( name = "userid", referencedColumnName = "id", foreignKey=@ForeignKey(name = "FK_ADDRESS_USER"))
 	private User user;
+	
+	@OneToMany(mappedBy = "address")
+	private List<ShopOrder> shopOrder;
 	
 	@Column(nullable = false, length = 100 )
 	private String street;

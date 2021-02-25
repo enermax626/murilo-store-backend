@@ -25,6 +25,9 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Address> address;
 	
+	@OneToMany(mappedBy = "user")
+	private List<ShopOrder> shopOrder;
+	
 	@Column(nullable = false, length = 80 )
 	private String name;
 	
