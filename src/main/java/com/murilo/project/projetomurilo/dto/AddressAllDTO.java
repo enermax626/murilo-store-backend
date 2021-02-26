@@ -1,57 +1,30 @@
-package com.murilo.project.projetomurilo.domain;
+package com.murilo.project.projetomurilo.dto;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
+import com.murilo.project.projetomurilo.domain.ShopOrder;
+import com.murilo.project.projetomurilo.domain.User;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+public class AddressAllDTO {
 
-@Entity
-public class Address {
-
-	@Id
-	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_ADDRESS")
-	@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "SEQ_ADDRESS")
 	private Long id;
 	
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn( name = "userid", referencedColumnName = "id", foreignKey=@ForeignKey(name = "FK_ADDRESS_USER"))
 	private User user;
 	
-	
-	@OneToMany(mappedBy = "address")
 	private List<ShopOrder> shopOrder;
-	
-	@Column(nullable = false, length = 100 )
+
 	private String street;
 	
-	@Column
 	private Long num;
 	
-	@Column(nullable = false, length = 8)
 	private String cep;
 	
-	@Column(nullable = false, length = 80 )
 	private String city;
 	
-	@Column(nullable = false, length = 80 )
 	private String state;
 	
-	@Column(nullable = false, length = 80 )
 	private String country;
 	
-	@Column(length = 200 )
 	private String additional;
 
 	public Long getId() {
@@ -133,7 +106,6 @@ public class Address {
 	public void setAdditional(String additional) {
 		this.additional = additional;
 	}
-	
 	
 	
 }

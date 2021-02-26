@@ -11,11 +11,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
 @Entity
 public class Product {
 
@@ -38,5 +33,55 @@ public class Product {
 	
 	@Column(length = 430)
 	private String description;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<Stock> getStock() {
+		return stock;
+	}
+
+	public void setStock(List<Stock> stock) {
+		this.stock = stock;
+	}
+
+	public List<OrderProduct> getOrderProduct() {
+		return orderProduct;
+	}
+
+	public void setOrderProduct(List<OrderProduct> orderProduct) {
+		this.orderProduct = orderProduct;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 	
 }
